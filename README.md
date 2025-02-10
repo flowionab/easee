@@ -15,7 +15,7 @@ Add the following dependency to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-easee = "0.1"
+easee-rs = "0.1"
 ```
 
 (Note: Replace with the actual crate name if published on crates.io, or use a Git dependency if needed.)
@@ -23,11 +23,11 @@ easee = "0.1"
 ## Usage
 
 ```rust
-use easee::Client;
+use easee_rs::Client;
 
 #[tokio::main]
 async fn main() {
-    let client = Client::new("your-api-key");
+    let client = Client::new_with_access_token("your-api-key");
     match client.get_chargers().await {
         Ok(chargers) => println!("{:?}", chargers),
         Err(e) => eprintln!("Error: {}", e),
@@ -37,7 +37,8 @@ async fn main() {
 
 ## Authentication
 
-The client requires an API key for authentication. You can generate one via the Easee developer portal.
+The client requires either an API key, or username and password for authentication. The API key can be obtained from 
+the Easee developer portal, while the username and password are the same as those used to log in to the Easee app.
 
 ## Contributing
 
