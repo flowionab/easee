@@ -55,10 +55,11 @@ impl Client {
         }
     }
 
-    async fn post<T: DeserializeOwned>(&self, path: &str, payload: Value) -> Result<T, Box<dyn Error + Send + Sync>> {
+    async fn post<T: DeserializeOwned + std::fmt::Debug>(&self, path: &str, payload: Value) -> Result<T, Box<dyn Error + Send + Sync>> {
         let payload = payload.to_string();
         let response = self.client
             .post(format!("{}/{}", BASE_URL, path))
+            .header("Authorization", format!("Bearer {}", self.access_token))
             .header("Content-Type", "application/json")
             .header("User-Agent", format!("Flowion/EaseeClient/{}", VERSION))
             .body(payload)
