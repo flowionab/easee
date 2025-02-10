@@ -2,6 +2,12 @@
 name = "easee-rs"
 version = "0.1.0"
 edition = "2021"
+description = "A client for the Easee API"
+license = "MIT OR Apache-2.0"
+keywords = ["easee", "rest", "api", "client"]
+repository = "https://github.com/flowionab/easee"
+authors = ["Joatin Granlund <joatin@granlund.io>"]
+
 
 [dependencies]
 reqwest = { version = "0.12", features = ["json"] }
