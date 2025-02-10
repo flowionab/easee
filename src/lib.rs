@@ -1,6 +1,5 @@
 
 mod client;
-mod responses;
+pub mod response;
 
 pub use self::client::Client;
-pub use self::responses::*;
